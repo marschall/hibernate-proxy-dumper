@@ -46,7 +46,8 @@
 
   <modules>
     <module>hibernate-proxy-dumper-agent</module>
-    <module>hibernate-proxy-dumper-demo</module>
+    <module>hibernate-proxy-dumper-demo5</module>
+    <module>hibernate-proxy-dumper-demo6</module>
   </modules>
 
   <dependencyManagement>

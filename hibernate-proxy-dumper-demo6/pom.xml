@@ -8,7 +8,7 @@
     <artifactId>hibernate-proxy-dumper</artifactId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
-  <artifactId>hibernate-proxy-dumper-demo</artifactId>
+  <artifactId>hibernate-proxy-dumper-demo6</artifactId>
   <name>Hibernate Proxy Dumper Demo</name>
   <description>Demo project for Hibernate Proxy Dumper</description>
 
@@ -17,7 +17,7 @@
       <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-framework-bom</artifactId>
-        <version>5.3.31</version>
+        <version>6.1.1</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
@@ -31,16 +31,16 @@
       <version>${project.version}</version>
     </dependency>
     <dependency>
-      <groupId>javax.persistence</groupId>
-      <artifactId>javax.persistence-api</artifactId>
-      <version>2.2</version>
+      <groupId>jakarta.persistence</groupId>
+      <artifactId>jakarta.persistence-api</artifactId>
+      <version>3.1.0</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.hibernate</groupId>
+      <groupId>org.hibernate.orm</groupId>
       <artifactId>hibernate-core</artifactId>
       <version>${hibernate.version}</version>
-      <scope>provided</scope>
+      <scope>test</scope>
     </dependency>
 
     <dependency>
@@ -109,6 +109,12 @@
   <build>
     <plugins>
       <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+      <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <configuration>
           <!--
@@ -123,7 +129,7 @@
   </build>
   
   <properties>
-    <hibernate.version>5.6.15.Final</hibernate.version>
+    <hibernate.version>6.4.0.Final</hibernate.version>
   </properties>
 
 </project>
