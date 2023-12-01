@@ -11,8 +11,25 @@
   <artifactId>hibernate-proxy-dumper-demo</artifactId>
   <name>Hibernate Proxy Dumper Demo</name>
   <description>Demo project for Hibernate Proxy Dumper</description>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-framework-bom</artifactId>
+        <version>5.3.31</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
   
   <dependencies>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>hibernate-proxy-dumper-agent</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <dependency>
       <groupId>javax.persistence</groupId>
       <artifactId>javax.persistence-api</artifactId>
@@ -59,6 +76,11 @@
       <artifactId>log4j-jcl</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-jul</artifactId>
+      <scope>test</scope>
+    </dependency>
 
     <!-- Spring -->
     <dependency>
@@ -83,6 +105,22 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <!--
+          <argLine>-javaagent:${project.basedir}/../hibernate-proxy-dumper-agent/target/hibernate-proxy-dumper-agent-${project.version}.jar</argLine>
+          -->
+          <systemPropertyVariables>
+            <java.util.logging.manager>org.apache.logging.log4j.jul.LogManager</java.util.logging.manager>
+          </systemPropertyVariables>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
   
   <properties>
     <hibernate.version>5.6.15.Final</hibernate.version>
