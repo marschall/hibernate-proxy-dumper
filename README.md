@@ -1,18 +1,12 @@
 Hibernate Proxy Dumper
 ======================
 
-A java agent that dumps Hibernate proxiees.
+A java agent that dumps Hibernate proxy classes.
 
-[Please release fernflower decompiler as a standalone jar](https://youtrack.jetbrains.com/issue/IDEA-175638/Please-release-fernflower-decompiler-as-a-standalone-jar)
 
 ```
-mvn dependency:get \
-  -DrepoUrl=https://www.jetbrains.com/intellij-repository/releases/ \
-  -Dartifact=com.jetbrains.intellij.java:java-decompiler-engine:LATEST \
-  -Ddest=.
-```
 
-A Hibernate Proxy will look something like this
+A Hibernate Proxy class will look something like this
 
 ```java
 public class Entity$HibernateProxy$iPrgCr9u extends Entity implements HibernateProxy, ProxyConfiguration {
@@ -28,6 +22,17 @@ public class Entity$HibernateProxy$iPrgCr9u extends Entity implements HibernateP
    public void $$_hibernate_set_interceptor(ProxyConfiguration.Interceptor interceptor) {
       this.$$_hibernate_interceptor = interceptor;
    }
-   
+
 }
+
+Decompiling
+-----------
+
+[Please release fernflower decompiler as a standalone jar](https://youtrack.jetbrains.com/issue/IDEA-175638/Please-release-fernflower-decompiler-as-a-standalone-jar)
+
+```
+mvn dependency:get \
+  -DrepoUrl=https://www.jetbrains.com/intellij-repository/releases/ \
+  -Dartifact=com.jetbrains.intellij.java:java-decompiler-engine:LATEST \
+  -Ddest=.
 ```
