@@ -14,16 +14,6 @@ public final class Agent {
       basePath = Paths.get("");
     }
     instrumentation.addTransformer(new DumpingTransformer(basePath));
-//    new AgentBuilder.Default()
-//    // the class named SchedulerService
-//    .type(ElementMatchers.nameEndsWith(".SchedulerService"))
-//    .transform((builder, type, classLoader, module) ->  builder.method(
-//              // all synchronized methods except load and unload
-//              isSynchronized().and(not(named("load").or(named("unload")))))
-//            .intercept(SuperMethodCall.INSTANCE)
-//            // remove synchronized
-//            .transform(withModifiers(SynchronizationState.PLAIN)))
-//    .installOn(instrumentation);
   }
 
 }

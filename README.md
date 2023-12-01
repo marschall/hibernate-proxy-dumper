@@ -16,9 +16,9 @@ A Hibernate Proxy will look something like this
 
 ```java
 public class Entity$HibernateProxy$iPrgCr9u extends Entity implements HibernateProxy, ProxyConfiguration {
+
    private ProxyConfiguration.Interceptor $$_hibernate_interceptor;
 
-   // $FF: synthetic field
    private static final Method cachedValue$xVIlXpzP$8j4rtp1 = Entity.class.getMethod("interceptedMethod");
 
    public ReturnValue interceptedMethod() {
