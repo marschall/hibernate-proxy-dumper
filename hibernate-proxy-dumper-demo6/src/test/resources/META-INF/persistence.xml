@@ -12,9 +12,6 @@
 
     <shared-cache-mode>NONE</shared-cache-mode>
 
-    <properties>
-      <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
-    </properties>
   </persistence-unit>
 
 </persistence>
